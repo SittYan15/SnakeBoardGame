@@ -18,6 +18,10 @@ Route::middleware(EnsureAuthIsValid::class)->group(function () {
 
 });
 
+Route::get('/', function () {
+    return redirect()->route('SignUp');
+});
+
 Route::get('/create/account', [AuthController::class, 'SignUp'])->name('SignUp');
 Route::post('/login/account', [AuthController::class, 'Login'])->name('login');
 
